@@ -1,0 +1,39 @@
+---
+title: "Homework 1"
+author: "Yige Bian (yb2591)"
+date: 2023-9-22
+output: github_document
+---
+
+```{r setup, include = FALSE}
+Sys.setlocale("LC_TIME", "English")
+library(tidyverse)
+```
+
+# Problem 1
+## Data description
+```{r data initialization}
+# Load the moderndive library and load the early_january_weather datase
+library(moderndive)
+data("early_january_weather")
+```
+
+*   Variables in the dataset 'early_january_weather' are `r colnames(early_january_weather)`.
+    *   The variable `origin` has class `r class(pull(early_january_weather, origin))`
+    *   The variable `year` has class `r class(pull(early_january_weather, year))`
+    *   The variable `month` has class `r class(pull(early_january_weather, month))`
+    *   The variable `day` has class `r class(pull(early_january_weather, day))`
+    *   The variable `hour` has class `r class(pull(early_january_weather, hour))`
+    *   The variable `temp` has class `r class(pull(early_january_weather, temp))`
+    *   The variable `dewp` has class `r class(pull(early_january_weather, dewp))`
+    *   The variable `humid` has class `r class(pull(early_january_weather, humid))`
+    *   The variable `wind_dir` has class `r class(pull(early_january_weather, wind_dir))`
+    *   The variable `wind_speed` has class `r class(pull(early_january_weather, wind_speed))`
+    *   The variable `wind_gust` has class `r class(pull(early_january_weather, wind_gust))`
+    *   The variable `precip` has class `r class(pull(early_january_weather, precip))`
+    *   The variable `pressure` has class `r class(pull(early_january_weather, pressure))`
+    *   The variable `visib` has class `r class(pull(early_january_weather, visib))`
+    *   The variable `time_hour` has class `r class(pull(early_january_weather, time_hour))`.
+*   The dataset 'early_january_weather' has `r nrow(early_january_weather)` rows and `r ncol(early_january_weather)` columns. 
+*   The mean temperature is `r mean(pull(early_january_weather, temp))`
+
