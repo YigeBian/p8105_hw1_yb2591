@@ -7,6 +7,7 @@ output: github_document
 
 ```{r setup, include = FALSE}
 Sys.setlocale("LC_TIME", "English")
+Sys.setenv(LANG = "en_US")
 library(tidyverse)
 ```
 
@@ -49,3 +50,25 @@ The scatter plot illustrates that, from January 1st to January 15th, a noticeabl
 # Export scatterplot to project directory
 ggsave("scatter_plot.pdf", height = 4, width = 6)
 ```
+
+# Problem 2
+## Dataframe initialization
+```{r data initialization for problem2}
+set.seed(1)
+
+samp_df = tibble(
+  vec_random = rnorm(10),
+  vec_logical = vec_random > 0,
+  vec_char = c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10"),
+  vec_factor = factor(c("high", "med", "samll", "high", "med", "med", "samll", "samll", "high", "med"))
+)
+```
+## Mean of variables
+```{r}
+mean(pull(samp_df,vec_random))
+mean(pull(samp_df,vec_logical))
+mean(pull(samp_df,vec_char))
+mean(pull(samp_df,vec_factor))
+```
+From the output, we can observe that the variable `vec_random` and `vec_logical` with numeric and logical form could be calculated the mean, while the other two variables `vec_char` and `vec_factor` with character and factor form got the result of NA and encounter the warning: argument is not numeric or logical.
+
