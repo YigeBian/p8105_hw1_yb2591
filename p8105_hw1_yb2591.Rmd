@@ -37,3 +37,15 @@ data("early_january_weather")
 *   The dataset 'early_january_weather' has `r nrow(early_january_weather)` rows and `r ncol(early_january_weather)` columns. 
 *   The mean temperature is `r mean(pull(early_january_weather, temp))`
 
+## Data plot
+```{r scatter plot for time and temp}
+# Scatterplot of temp (y) vs time_hour (x), color points using the humid
+ggplot(early_january_weather, aes(x = time_hour, y = temp, color=humid)) + geom_point()
+```
+
+The scatter plot illustrates that, from January 1st to January 15th, a noticeable upward trend in temperature fluctuations can be observed. The temperature during different times of the day follows a similar pattern of change, and overall, the average temperature continues to rise. In the first few days of January, the humidity is relatively low. Starting from January 6th, there are intermittent periods of increased humidity. It's worth noting that from January 11th to January 14th, the humidity is particularly high, and during these days, the daily temperature fluctuations are relatively small.
+
+```{r scatterplot export}
+# Export scatterplot to project directory
+ggsave("scatter_plot.pdf", height = 4, width = 6)
+```
